@@ -1,6 +1,5 @@
 import { User } from "@/core/entities/User";
 import { AxiosGet, AxiosPost, AxiosPut } from "@/lib/axios";
-import { use } from "react";
 
 const urlBase = "/api/v1/users";
 

@@ -26,3 +26,17 @@
     - npx prisma migrate deploy
 4. Run:
     - npm run dev
+
+## 🧱 Run test
+1. Run test
+    - npm run tes
+2 Generate coverage table
+    - npm run test:coverage
+
+## Endpoints
+- GET: api/v1/health
+- GET: api/v1/users
+- GET: api/v1/users/:id
+- POST: api/v1/users
+- PUT: api/v1/users/:id
+- POST: api/v1/users/:id/posts
