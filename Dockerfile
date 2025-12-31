@@ -10,7 +10,7 @@ RUN npm install
 COPY prisma ./prisma
 
 # Copy ENV so Prisma can connect
-COPY .env .env
+# COPY .env .env
 
 # Generate Prisma client (needs DATABASE_URL)
 RUN npx prisma generate
