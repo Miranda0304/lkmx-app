@@ -25,9 +25,12 @@ export const TableUser = ({ users }: { users: User[] }) => {
               <td className="border p-2">
                 {u.isActive ? "Active" : "Inactive"}
               </td>
-              <td className="border p-2">
+              <td className="border p-2 gap-4 flex">
                 <Link href={`/users/edit/${u.id}`} className="text-blue-500">
                   Edit
+                </Link>
+                <Link href={`/users/${u.id}/posts`} className="text-blue-500">
+                  View Post
                 </Link>
               </td>
             </tr>

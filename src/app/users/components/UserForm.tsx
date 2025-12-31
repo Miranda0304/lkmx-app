@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUsers } from "../hooks/useUsers";
+import Link from "next/link";
 
 export const UserForm = ({ user }: { user?: any }) => {
   const router = useRouter();
@@ -38,13 +39,28 @@ export const UserForm = ({ user }: { user?: any }) => {
             className="w-full border p-2 rounded"
           />
         ))}
-
-        <button
-          onClick={submit}
-          className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded"
-        >
-          {user ? "Update" : "Create"}
-        </button>
+        <div className="gap-2 flex">
+          <button
+            onClick={submit}
+            className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded"
+          >
+            {user ? "Update" : "Create"}
+          </button>
+          <Link
+            href="/users"
+            className="
+          inline-flex items-center justify-center
+          px-6 py-2
+          rounded-sm
+          bg-indigo-600
+          hover:bg-indigo-500
+          text-white 
+          transition
+          "
+          >
+            Back
+          </Link>
+        </div>
       </div>
     </div>
   );
