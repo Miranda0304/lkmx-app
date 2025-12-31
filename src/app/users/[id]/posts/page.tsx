@@ -1,8 +1,7 @@
 "use client";
-
-import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
 import { usePost } from "../../hooks/usePost";
+import { BackButton } from "../../components/BackButton";
 
 export default function CreatePostPage() {
   const { id } = useParams();
@@ -39,12 +38,7 @@ export default function CreatePostPage() {
         >
           Save Post
         </button>
-        <Link
-          href="/users"
-          className="py-2 inline-flex items-center justify-center px-6 rounded-sm bg-indigo-600 hover:bg-indigo-500 text-white transition"
-        >
-          Back
-        </Link>
+        <BackButton />
       </div>
     </form>
   );
