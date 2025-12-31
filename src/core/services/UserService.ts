@@ -1,5 +1,5 @@
 import { IUserCoreRepository } from "../repositories/IUserCoreRepository";
-import { User } from "../entities/User";
+import { Post, User } from "../entities/User";
 
 export class UserService {
   constructor(private user: IUserCoreRepository) {}
@@ -19,5 +19,9 @@ export class UserService {
   updateUser(user: Partial<User>) {
     if (!user.id) return;
     return this.user.update(user.id, user);
+  }
+
+  createPost(post: Post) {
+    return this.user.createPost(post);
   }
 }

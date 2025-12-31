@@ -1,4 +1,50 @@
-const Posts = () => {
-  return <div>Posts</div>;
-};
-export default Posts;
+"use client";
+
+import Link from "next/link";
+import { useParams } from "next/navigation";
+import { useState } from "react";
+import { usePost } from "../../hooks/usePost";
+
+export default function CreatePostPage() {
+  const { id } = useParams();
+  const { createPost, form, setForm } = usePost();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await createPost(Number(id), form.title, form.content);
+  };
+
+  return (
+    <form className="p-6 space-y-4 max-w-xl">
+      <h1 className="text-xl font-bold">Create Post</h1>
+
+      <input
+        className="border p-2 w-full"
+        placeholder="Title"
+        required
+        onChange={(e) => setForm({ ...form, title: e.target.value })}
+      />
+
+      <textarea
+        className="border p-2 w-full h-32"
+        placeholder="Content"
+        onChange={(e) => setForm({ ...form, content: e.target.value })}
+      />
+
+      <div className="gap-2 flex">
+        <button
+          onClick={handleSubmit}
+          className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded"
+        >
+          Save Post
+        </button>
+        <Link
+          href="/users"
+          className="py-2 inline-flex items-center justify-center px-6 rounded-sm bg-indigo-600 hover:bg-indigo-500 text-white transition"
+        >
+          Back
+        </Link>
+      </div>
+    </form>
+  );
+}

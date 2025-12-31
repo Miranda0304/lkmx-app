@@ -39,6 +39,16 @@ export const UserForm = ({ user }: { user?: any }) => {
             className="w-full border p-2 rounded"
           />
         ))}
+        {user && (
+          <div>
+            <input
+              type="checkbox"
+              checked={form["isActive"]}
+              onChange={(e) => setForm({ ...form, isActive: e.target.checked })}
+            />{" "}
+            Active
+          </div>
+        )}
         <div className="gap-2 flex">
           <button
             onClick={submit}
@@ -48,15 +58,7 @@ export const UserForm = ({ user }: { user?: any }) => {
           </button>
           <Link
             href="/users"
-            className="
-          inline-flex items-center justify-center
-          px-6 py-2
-          rounded-sm
-          bg-indigo-600
-          hover:bg-indigo-500
-          text-white 
-          transition
-          "
+            className="inline-flex items-center justify-center px-6 py-2 rounded-sm bg-indigo-600 hover:bg-indigo-500 text-white transition"
           >
             Back
           </Link>
