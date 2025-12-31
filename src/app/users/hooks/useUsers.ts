@@ -5,7 +5,8 @@ import {
   getUsersService,
   updateUserService,
 } from "@/app/services/UserServices";
-import { User } from "@/generated/prisma/client";
+import { User } from "@/core/entities/User";
+
 import { useState } from "react";
 
 export const useUsers = () => {
