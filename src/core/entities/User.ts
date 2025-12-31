@@ -6,6 +6,7 @@ export interface User {
   isActive: boolean;
   createdAt: Date;
   updatedAt: Date;
+  postsCount?: number;
 }
 
 export interface Post {

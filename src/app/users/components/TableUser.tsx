@@ -11,6 +11,7 @@ export const TableUser = ({ users }: { users: User[] }) => {
           <th className="border border-gray-300 p-2">Last Name</th>
           <th className="border border-gray-300 p-2">Email</th>
           <th className="border border-gray-300 p-2">Status</th>
+          <th className="border border-gray-300 p-2">Total Posts</th>
           <th className="border border-gray-300 p-2">Actions</th>
         </tr>
       </thead>
@@ -25,12 +26,13 @@ export const TableUser = ({ users }: { users: User[] }) => {
               <td className="border p-2">
                 {u.isActive ? "Active" : "Inactive"}
               </td>
+              <td className="border p-2 text-center">{u.postsCount ?? 0}</td>
               <td className="border p-2 gap-4 flex">
                 <Link href={`/users/edit/${u.id}`} className="text-blue-500">
                   Edit
                 </Link>
                 <Link href={`/users/${u.id}/posts`} className="text-blue-500">
-                  View Post
+                  Create Post
                 </Link>
               </td>
             </tr>

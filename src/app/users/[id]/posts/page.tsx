@@ -1,17 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useParams } from "next/navigation";
-import { useState } from "react";
+import { useParams, useRouter } from "next/navigation";
 import { usePost } from "../../hooks/usePost";
 
 export default function CreatePostPage() {
   const { id } = useParams();
   const { createPost, form, setForm } = usePost();
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await createPost(Number(id), form.title, form.content);
+    router.push("/users");
   };
 
   return (

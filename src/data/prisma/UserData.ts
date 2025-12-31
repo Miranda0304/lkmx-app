@@ -3,10 +3,22 @@ import { Post, User } from "@/core/entities/User";
 import { IUserDataRepository } from "@/data/repositories/IUserDataRepository";
 
 export class UserRepository implements IUserDataRepository {
-  findAll(): Promise<User[]> {
-    return prisma.user.findMany({
+  async findAll(): Promise<User[]> {
+    const users = await prisma.user.findMany({
       where: { isActive: true },
+      include: { _count: { select: { posts: true } } },
     });
+
+    return users.map((u) => ({
+      id: u.id,
+      firstName: u.firstName,
+      lastName: u.lastName,
+      email: u.email,
+      isActive: u.isActive,
+      createdAt: u.createdAt,
+      updatedAt: u.updatedAt,
+      postsCount: u._count.posts,
+    }));
   }
 
   findById(id: number): Promise<User | null> {
