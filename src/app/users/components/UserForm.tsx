@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUsers } from "../hooks/useUsers";
-import { BackButton } from "./BackButton";
+import { CustomButton } from "./CustomButton";
 
 export const UserForm = ({ user }: { user?: any }) => {
   const router = useRouter();
@@ -52,11 +52,13 @@ export const UserForm = ({ user }: { user?: any }) => {
         <div className="gap-2 flex">
           <button
             onClick={submit}
-            className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded"
+            className="inline-flex items-center justify-center rounded-xl
+            bg-linear-to-br from-gray-600 via-teal-950 to-black px-6 py-3
+            hover:scale-105 hover:contrast-150 border border-gray-500 cursor-pointer"
           >
             {user ? "Update" : "Create"}
           </button>
-          <BackButton />
+          <CustomButton />
         </div>
       </div>
     </div>

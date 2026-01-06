@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { useUsers } from "./hooks/useUsers";
 import { TableUser } from "./components/TableUser";
+import { CustomButton } from "./components/CustomButton";
 
 const UsersPage = () => {
   const { users, getUsers } = useUsers();
@@ -13,15 +14,11 @@ const UsersPage = () => {
   }, []);
 
   return (
-    <div className="p-6">
+    <div className="p-6 text-white">
       <h1 className="text-2xl font-bold mb-4">Users</h1>
-      <Link href="/" className="text-blue-500 mb-4 inline-block">
-        Back
-      </Link>
+      <CustomButton href="/" />
       <br />
-      <Link href="/users/create" className="text-blue-500 mb-4 inline-block">
-        Create User
-      </Link>
+      <CustomButton href="/users/create" text="Create User" />
       <TableUser users={users} />
     </div>
   );

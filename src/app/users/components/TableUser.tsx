@@ -28,12 +28,8 @@ export const TableUser = ({ users }: { users: User[] }) => {
               </td>
               <td className="border p-2 text-center">{u.postsCount ?? 0}</td>
               <td className="border p-2 gap-4 flex">
-                <Link href={`/users/edit/${u.id}`} className="text-blue-500">
-                  Edit
-                </Link>
-                <Link href={`/users/${u.id}/posts`} className="text-blue-500">
-                  Create Post
-                </Link>
+                <Link href={`/users/edit/${u.id}`}>Edit</Link>
+                <Link href={`/users/${u.id}/posts`}>Create Post</Link>
               </td>
             </tr>
           ))}

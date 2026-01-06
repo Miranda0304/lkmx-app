@@ -1,7 +1,7 @@
 "use client";
 import { useParams, useRouter } from "next/navigation";
 import { usePost } from "../../hooks/usePost";
-import { BackButton } from "../../components/BackButton";
+import { CustomButton } from "../../components/CustomButton";
 
 export default function CreatePostPage() {
   const { id } = useParams();
@@ -34,11 +34,13 @@ export default function CreatePostPage() {
       <div className="gap-2 flex">
         <button
           onClick={handleSubmit}
-          className="bg-indigo-600 hover:bg-indigo-500 text-white px-4 py-2 rounded"
+          className="inline-flex items-center justify-center rounded-xl
+            bg-linear-to-br from-gray-600 via-teal-950 to-black px-6 py-3
+            hover:scale-105 hover:contrast-150 border border-gray-500 cursor-pointer"
         >
           Save Post
         </button>
-        <BackButton />
+        <CustomButton />
       </div>
     </form>
   );
