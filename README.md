@@ -1,5 +1,8 @@
 # Technical Test NextJs
 
+## 🧱 Deploy from free server
+- https://lkmx-app.onrender.com
+
 ## 🧱 Tech Stack
 
 - Next.js 16
